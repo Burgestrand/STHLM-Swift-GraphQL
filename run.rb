@@ -27,13 +27,17 @@ loader.push_dir(File.join(__dir__, "app"))
 loader.push_dir(File.join(__dir__, "graphql"))
 loader.setup
 
-users = User.make(5)
+db = {}
+db[:users] = Models::User.make(3)
+db[:articles] = db[:users].flat_map { |user| user.articles }
+
+before do
+  loader.reload
+end
 
 post "/graphql" do
   json = JSON.parse(request.body.read)
-  result = Schema.execute(json["query"], root_value: {
-    users: users
-  })
+  result = Schema.execute(json["query"], root_value: App.new(db: db))
   json result.to_h
 end
 
