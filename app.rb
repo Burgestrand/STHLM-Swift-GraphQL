@@ -27,13 +27,13 @@ loader.push_dir(File.join(__dir__, "app"))
 loader.push_dir(File.join(__dir__, "graphql"))
 loader.setup
 
-app_data = {
-  users: User.make(5)
-}
+users = User.make(5)
 
 post "/graphql" do
   json = JSON.parse(request.body.read)
-  result = Schema.execute(json["query"], root_value: app_data)
+  result = Schema.execute(json["query"], root_value: {
+    users: users
+  })
   json result.to_h
 end
 
