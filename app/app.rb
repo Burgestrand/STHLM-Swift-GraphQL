@@ -14,4 +14,8 @@ class App
   def user(id:)
     users.find { |user| user.id == id }
   end
+
+  def article(id:)
+    articles.find { |article| article.id == id }
+  end
 end

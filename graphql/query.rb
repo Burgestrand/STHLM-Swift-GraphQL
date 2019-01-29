@@ -1,17 +1,23 @@
 class Query < GraphQL::Schema::Object
   description "Root query type. There's only one."
 
-  field :users, type: [Query::User], null: false do
+  field :users, type: [Types::User], null: false do
     description "A list of all users."
   end
 
-  field :user, type: Query::User, null: true do
+  field :user, type: Types::User, null: true do
     description "Retrieve a user by ID."
 
     argument :id, type: ID, required: true
   end
 
-  field :articles, type: [Query::Article], null: false do
+  field :articles, type: [Types::Article], null: false do
     description "A list of all users."
+  end
+
+  field :article, type: Types::Article, null: true do
+    description "Retrieve an article by ID."
+
+    argument :id, type: ID, required: true
   end
 end
