@@ -8,7 +8,7 @@ class App
   end
 
   def articles
-    @db[:articles]
+    users.flat_map { |user| user.articles }
   end
 
   def user(id:)

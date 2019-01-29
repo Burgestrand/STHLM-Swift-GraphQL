@@ -1,3 +1,4 @@
 class Schema < GraphQL::Schema
-  query Query
+  query ::Query
+  mutation ::Mutation
 end

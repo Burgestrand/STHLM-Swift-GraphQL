@@ -1,4 +1,6 @@
 class Query < GraphQL::Schema::Object
+  description "Root query type. There's only one."
+
   field :users, type: [Query::User], null: false do
     description "A list of all users."
   end

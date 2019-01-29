@@ -29,7 +29,6 @@ loader.setup
 
 db = {}
 db[:users] = Models::User.make(3)
-db[:articles] = db[:users].flat_map { |user| user.articles }
 
 before do
   loader.reload
