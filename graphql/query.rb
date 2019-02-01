@@ -12,7 +12,7 @@ class Query < GraphQL::Schema::Object
   end
 
   field :articles, type: [Types::Article], null: false do
-    description "A list of all users."
+    description "A list of all articles."
   end
 
   field :article, type: Types::Article, null: true do
