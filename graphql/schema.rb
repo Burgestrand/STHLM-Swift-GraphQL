@@ -3,5 +3,5 @@ class Schema < GraphQL::Schema
   mutation ::Mutation
   subscription ::Subscription
 
-  use IodineSubscription
+  use CustomSubscriptionManager
 end

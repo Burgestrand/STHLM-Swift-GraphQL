@@ -2,7 +2,7 @@
 # to manage all our GraphQL subscriptions.
 #
 # We instantiate this through the GraphQL schema.
-class IodineSubscription < GraphQL::Subscriptions
+class CustomSubscriptionManager < GraphQL::Subscriptions
   def initialize(schema:, **rest)
     @subscribers = {}
     super(schema: schema, **rest)
