@@ -1,0 +1,16 @@
+node_modules/
+.npm
+.yarn-integrity
+
+/.bundle/
+
+xcuserdata/
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+**/xcshareddata/WorkspaceSettings.xcsettings
+
+tags
+tags.*
