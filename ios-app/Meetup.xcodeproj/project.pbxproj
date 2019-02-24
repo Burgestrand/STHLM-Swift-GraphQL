@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3B63997B22232BE30016B4A1 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B63997A22232BE30016B4A1 /* Apollo.framework */; };
+		3B9FBDFF222347FD0046BD57 /* GraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FBDFD222347FD0046BD57 /* GraphQL.swift */; };
+		3B9FBE01222348150046BD57 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FBE00222348150046BD57 /* API.swift */; };
+		3B9FBE0522234D240046BD57 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B9FBE0422234D240046BD57 /* ViewController.xib */; };
 		3BDAD3B9221C2A8600A20AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDAD3B8221C2A8600A20AD1 /* AppDelegate.swift */; };
 		3BDAD3BB221C2A8600A20AD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDAD3BA221C2A8600A20AD1 /* ViewController.swift */; };
 		3BDAD3C0221C2A8800A20AD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BDAD3BF221C2A8800A20AD1 /* Assets.xcassets */; };
@@ -17,6 +20,10 @@
 /* Begin PBXFileReference section */
 		3B63997A22232BE30016B4A1 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = Carthage/Build/iOS/Apollo.framework; sourceTree = "<group>"; };
 		3B63997D22232D150016B4A1 /* Carthage.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = Carthage.xcfilelist; sourceTree = "<group>"; };
+		3B9FBDFD222347FD0046BD57 /* GraphQL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQL.swift; sourceTree = "<group>"; };
+		3B9FBE00222348150046BD57 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		3B9FBE02222349C80046BD57 /* ListUsers.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ListUsers.graphql; sourceTree = "<group>"; };
+		3B9FBE0422234D240046BD57 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		3BDAD3B5221C2A8600A20AD1 /* Meetup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meetup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BDAD3B8221C2A8600A20AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BDAD3BA221C2A8600A20AD1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,9 +52,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3B9FBDFB22233D780046BD57 /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				3B9FBDFD222347FD0046BD57 /* GraphQL.swift */,
+				3B9FBE02222349C80046BD57 /* ListUsers.graphql */,
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
 		3BDAD3AC221C2A8600A20AD1 = {
 			isa = PBXGroup;
 			children = (
+				3B9FBDFB22233D780046BD57 /* GraphQL */,
 				3BDAD3B7221C2A8600A20AD1 /* Meetup */,
 				3BDAD3B6221C2A8600A20AD1 /* Products */,
 				3B63997922232BE20016B4A1 /* Frameworks */,
@@ -67,6 +84,8 @@
 			children = (
 				3BDAD3B8221C2A8600A20AD1 /* AppDelegate.swift */,
 				3BDAD3BA221C2A8600A20AD1 /* ViewController.swift */,
+				3B9FBE0422234D240046BD57 /* ViewController.xib */,
+				3B9FBE00222348150046BD57 /* API.swift */,
 				3BDAD3BF221C2A8800A20AD1 /* Assets.xcassets */,
 				3BDAD3C1221C2A8800A20AD1 /* LaunchScreen.storyboard */,
 				3BDAD3C4221C2A8800A20AD1 /* Info.plist */,
@@ -82,6 +101,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BDAD3C7221C2A8800A20AD1 /* Build configuration list for PBXNativeTarget "Meetup" */;
 			buildPhases = (
+				3B9FBDFA22233C420046BD57 /* Compile GraphQL */,
 				3BDAD3B1221C2A8600A20AD1 /* Sources */,
 				3BDAD3B2221C2A8600A20AD1 /* Frameworks */,
 				3B63997C22232BF80016B4A1 /* Copy frameworks */,
@@ -134,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BDAD3C3221C2A8800A20AD1 /* LaunchScreen.storyboard in Resources */,
+				3B9FBE0522234D240046BD57 /* ViewController.xib in Resources */,
 				3BDAD3C0221C2A8800A20AD1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +181,24 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/bin/env carthage copy-frameworks\n";
 		};
+		3B9FBDFA22233C420046BD57 /* Compile GraphQL */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Compile GraphQL";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C $SOURCE_ROOT code\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -168,6 +207,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BDAD3BB221C2A8600A20AD1 /* ViewController.swift in Sources */,
+				3B9FBDFF222347FD0046BD57 /* GraphQL.swift in Sources */,
+				3B9FBE01222348150046BD57 /* API.swift in Sources */,
 				3BDAD3B9221C2A8600A20AD1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

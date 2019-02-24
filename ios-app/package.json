@@ -1,0 +1,10 @@
+{
+  "name": "Meetup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Kim",
+  "license": "MIT",
+  "dependencies": {
+    "apollo": "^1.9"
+  }
+}
