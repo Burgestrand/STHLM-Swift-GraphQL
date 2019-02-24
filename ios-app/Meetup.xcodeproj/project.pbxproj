@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B63997B22232BE30016B4A1 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B63997A22232BE30016B4A1 /* Apollo.framework */; };
 		3BDAD3B9221C2A8600A20AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDAD3B8221C2A8600A20AD1 /* AppDelegate.swift */; };
 		3BDAD3BB221C2A8600A20AD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDAD3BA221C2A8600A20AD1 /* ViewController.swift */; };
 		3BDAD3C0221C2A8800A20AD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BDAD3BF221C2A8800A20AD1 /* Assets.xcassets */; };
@@ -14,6 +15,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B63997A22232BE30016B4A1 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = Carthage/Build/iOS/Apollo.framework; sourceTree = "<group>"; };
+		3B63997D22232D150016B4A1 /* Carthage.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = Carthage.xcfilelist; sourceTree = "<group>"; };
 		3BDAD3B5221C2A8600A20AD1 /* Meetup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meetup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BDAD3B8221C2A8600A20AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BDAD3BA221C2A8600A20AD1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,17 +30,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B63997B22232BE30016B4A1 /* Apollo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B63997922232BE20016B4A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B63997A22232BE30016B4A1 /* Apollo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3BDAD3AC221C2A8600A20AD1 = {
 			isa = PBXGroup;
 			children = (
 				3BDAD3B7221C2A8600A20AD1 /* Meetup */,
 				3BDAD3B6221C2A8600A20AD1 /* Products */,
+				3B63997922232BE20016B4A1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,6 +70,7 @@
 				3BDAD3BF221C2A8800A20AD1 /* Assets.xcassets */,
 				3BDAD3C1221C2A8800A20AD1 /* LaunchScreen.storyboard */,
 				3BDAD3C4221C2A8800A20AD1 /* Info.plist */,
+				3B63997D22232D150016B4A1 /* Carthage.xcfilelist */,
 			);
 			path = Meetup;
 			sourceTree = "<group>";
@@ -70,6 +84,7 @@
 			buildPhases = (
 				3BDAD3B1221C2A8600A20AD1 /* Sources */,
 				3BDAD3B2221C2A8600A20AD1 /* Frameworks */,
+				3B63997C22232BF80016B4A1 /* Copy frameworks */,
 				3BDAD3B3221C2A8600A20AD1 /* Resources */,
 			);
 			buildRules = (
@@ -124,6 +139,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3B63997C22232BF80016B4A1 /* Copy frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/$(TARGET_NAME)/Carthage.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "Copy frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/bin/env carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3BDAD3B1221C2A8600A20AD1 /* Sources */ = {
@@ -270,6 +307,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Meetup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -287,6 +328,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Meetup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
