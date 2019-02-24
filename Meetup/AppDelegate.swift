@@ -12,7 +12,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow()
         self.window = window
 
-        window.rootViewController = ViewController()
+        let api = API()
+        window.rootViewController = ViewController(api: api)
         window.makeKeyAndVisible()
 
         return true
