@@ -1,27 +1,7 @@
 #!/usr/bin/env ruby
 
-require "bundler/inline"
-
-gemfile do
-  source "https://rubygems.org/"
-
-  ruby "~> 2.6.1"
-
-  gem "pry"
-  gem "pry-coolline"
-
-  gem "graphql"
-  gem "faker"
-
-  gem "iodine"
-  gem "sinatra"
-  gem "sinatra-contrib"
-
-  gem "machinist"
-  gem "zeitwerk"
-end
-
-require "sinatra/json"
+require "bundler/setup"
+Bundler.require
 
 loader = Zeitwerk::Loader.new
 loader.push_dir(File.join(__dir__, "app"))
