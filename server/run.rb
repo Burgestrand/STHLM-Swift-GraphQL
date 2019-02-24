@@ -35,6 +35,8 @@ before do
   loader.reload
 end
 
+set :static, false
+
 post "/graphql" do
   json = JSON.parse(request.body.read)
   result = Schema.execute(json["query"], root_value: App.new(db: db))
@@ -53,7 +55,7 @@ Iodine.on_idle do
   end
 end
 
-Iodine.listen(port: 3000, service: :http, handler: Sinatra::Application)
+Iodine.listen(port: 3000, service: :http, public: "public/", handler: Sinatra::Application)
 Iodine.listen(port: 3001) do
   PubSubProtocol.new(App.new(db: db))
 end
