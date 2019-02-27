@@ -23,23 +23,7 @@ post "/graphql" do
   json result.to_h
 end
 
-Iodine.on_idle do
-  Iodine.subscribe(:time) do |source, message|
-    ::Schema.subscriptions.trigger(:time, {}, message)
-  end
-
-  next unless Iodine.master?
-
-  Iodine.run_every(1 * 1000) do
-    Iodine.publish(:time, Time.now.to_i.to_s)
-  end
-end
-
-Iodine.listen(port: 3000, service: :http, public: "public/", handler: Sinatra::Application)
-Iodine.listen(port: 3001) do
-  PubSubProtocol.new(App.new(db: db))
-end
-
+Iodine.listen(port: ENV.fetch("PORT", 3000), service: :http, public: "public/", handler: Sinatra::Application)
 Iodine.threads = 1
 Iodine.workers = 1
 Iodine.start
