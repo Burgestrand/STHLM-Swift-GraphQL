@@ -15,7 +15,7 @@ class API {
 
     typealias Completion<T> = (Response<T>) -> Void
 
-    static let url = URL(string: "http://localhost:3000/graphql")!
+    static let url = URL(string: "https://glacial-dawn-15840.herokuapp.com/graphql")!
 
     init() {
     }

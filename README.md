@@ -1,8 +1,13 @@
 # Meetup App
 
 Notes:
-- Build process uses node & yarn. You can get it through homebrew: `brew install
-  yarn`.
+- Build process uses node & yarn. You can get it through homebrew: `brew install yarn`.
+
+```
+brew install yarn
+yarn install
+make app
+```
 
 ## Resources
 
@@ -12,5 +17,6 @@ Notes:
 
 ## Makefile
 
+- `make app` — bootstrap and build dependencies.
 - `make code` — generate swift code from schema and queries.
 - `make schema` — download schema from remote endpoint.
