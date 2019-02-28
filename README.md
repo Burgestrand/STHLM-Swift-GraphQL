@@ -1,4 +1,7 @@
-# Meetup App
+## Setup
+
+Navigate to this project directory, and run these
+commands in a Terminal:
 
 ```
 brew install yarn
