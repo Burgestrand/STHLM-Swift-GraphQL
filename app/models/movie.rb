@@ -4,7 +4,7 @@ module Models
 
   Movie.blueprint do
     id { SecureRandom.uuid }
-    title { Faker::Book.title }
+    title { Faker::Book.unique.title }
     poster_url do
       categories = %w[city people animals nature sports technics]
       images = (1...10).to_a
