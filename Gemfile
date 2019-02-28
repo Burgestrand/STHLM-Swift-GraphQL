@@ -8,7 +8,7 @@ gem "pry-coolline"
 gem "graphql"
 gem "faker"
 gem "sequel"
-gem "sqlite3"
+gem "pg"
 
 gem "iodine"
 gem "sinatra"

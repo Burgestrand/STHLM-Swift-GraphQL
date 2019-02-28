@@ -11,19 +11,8 @@ $loader.setup
 # 
 # Configure database.
 #
-$db = Sequel.sqlite(":memory:")
-Sequel.extension(:migration)
-Sequel::Migrator.run($db, "./app/db/")
-
-def placeholder_url
-  categories = %w[city people animals nature sports technics]
-  images = (1...10)
-  "http://lorempixel.com/320x640/#{categories.sample}/#{images.sample}"
+config = YAML.load(File.read("./config/database.yml"))
+default = config.fetch(:default) do
+  raise "Database config fail: #{config}"
 end
-
-# Create fake data!
-$db.transaction do
-    user = Models::User.make.then(&:save)
-    movie = Models::Movie.make.then(&:save)
-    Models::Review.make(user: user, movie: movie).then(&:save)
-end
+$db = Sequel.connect(default)

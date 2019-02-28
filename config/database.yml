@@ -1,0 +1,5 @@
+---
+:default:
+  adapter: postgres
+  host: localhost
+  database: meetup
