@@ -12,6 +12,10 @@ class App
     Models::User
   end
 
+  def movies
+    Models::Movie
+  end
+
   def user(id:)
     users.where(id: id).first
   end

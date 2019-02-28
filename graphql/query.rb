@@ -14,4 +14,8 @@ class Query < GraphQL::Schema::Object
 
     argument :id, type: ID, required: true
   end
+
+  field :movies, type: [Types::Movie], null: false do
+    description "A list of all movies."
+  end
 end

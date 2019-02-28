@@ -1,6 +1,6 @@
 module Models
   class User < Model
-    one_to_one :review
+    one_to_many :reviews
   end
 
   User.blueprint do
