@@ -1,8 +1,5 @@
 # Meetup App
 
-Notes:
-- Build process uses node & yarn. You can get it through homebrew: `brew install yarn`.
-
 ```
 brew install yarn
 yarn install
