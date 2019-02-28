@@ -13,6 +13,6 @@ class App
   end
 
   def user(id:)
-    users.where(id: id)
+    users.where(id: id).first
   end
 end
