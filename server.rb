@@ -24,6 +24,7 @@ post "/graphql" do
     context: {
       current_user: current_user
     },
+    operation_name: json["operationName"],
     root_value: App.new(
       db: $db,
       current_user: current_user
