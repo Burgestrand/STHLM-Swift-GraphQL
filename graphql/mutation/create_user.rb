@@ -10,8 +10,7 @@ class Mutation::CreateUser < GraphQL::Schema::Mutation
   field :user, Types::User, null: false
 
   def resolve(input:)
-    user = Models::User.make(name: input.name, articles: [])
-    object.users.append(user)
+    user = Models::User.make(name: input.name)
     { user: user }
   end
 end

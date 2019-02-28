@@ -1,1 +1,1 @@
-web: bundle exec run.rb PORT=$PORT
+web: bundle exec server.rb PORT=$PORT

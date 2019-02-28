@@ -1,21 +1,18 @@
 class App
-  def initialize(db:)
+  def initialize(db:, current_user: nil)
     @db = db
+    @current_user = current_user
+  end
+
+  def me
+    @current_user
   end
 
   def users
-    @db[:users]
-  end
-
-  def articles
-    users.flat_map { |user| user.articles }
+    Models::User
   end
 
   def user(id:)
-    users.find { |user| user.id == id }
-  end
-
-  def article(id:)
-    articles.find { |article| article.id == id }
+    users.where(id: id)
   end
 end

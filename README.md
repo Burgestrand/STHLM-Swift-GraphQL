@@ -8,5 +8,5 @@ I am built in Ruby 2.6.1.
 brew install rbenv
 rbenv install 2.6.1
 bundle install
-bundle exec run.rb
+bundle exec server.rb
 ```
