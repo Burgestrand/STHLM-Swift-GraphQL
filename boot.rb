@@ -11,8 +11,6 @@ $loader.setup
 # 
 # Configure database.
 #
-config = YAML.load(File.read("./config/database.yml"))
-default = config.fetch(:default) do
-  raise "Database config fail: #{config}"
-end
-$db = Sequel.connect(default)
+
+database_url = ENV.fetch("DATABASE_URL", "postgres://localhost/meetup")
+$db = Sequel.connect(database_url)
