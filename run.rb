@@ -16,6 +16,7 @@ before do
 end
 
 set :static, false
+set :run, false
 
 post "/graphql" do
   json = JSON.parse(request.body.read)
